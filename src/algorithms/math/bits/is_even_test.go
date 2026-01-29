@@ -9,7 +9,7 @@ import (
 )
 
 func TestIsEven(t *testing.T) {
-	testCases := []struct {
+	tests := []struct {
 		number int
 		isEven bool
 	}{
@@ -67,9 +67,9 @@ func TestIsEven(t *testing.T) {
 		},
 	}
 
-	for _, tc := range testCases {
-		t.Run(fmt.Sprintf("%d", tc.number), func(t *testing.T) {
-			require.Equal(t, tc.isEven, bits.IsEven(tc.number))
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%d", tt.number), func(t *testing.T) {
+			require.Equal(t, tt.isEven, bits.IsEven(tt.number))
 		})
 	}
 }

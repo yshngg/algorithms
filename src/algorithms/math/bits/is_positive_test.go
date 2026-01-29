@@ -9,8 +9,7 @@ import (
 )
 
 func TestIsPositive(t *testing.T) {
-	t.Logf("%b", -1<<1)
-	testCases := []struct {
+	tests := []struct {
 		number int
 		isEven bool
 	}{
@@ -68,9 +67,9 @@ func TestIsPositive(t *testing.T) {
 		},
 	}
 
-	for _, tc := range testCases {
-		t.Run(fmt.Sprintf("%d", tc.number), func(t *testing.T) {
-			require.Equal(t, tc.isEven, bits.IsPositive(tc.number))
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%d", tt.number), func(t *testing.T) {
+			require.Equal(t, tt.isEven, bits.IsPositive(tt.number))
 		})
 	}
 }
